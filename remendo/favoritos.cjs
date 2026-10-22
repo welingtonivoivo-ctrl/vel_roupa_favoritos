@@ -51,6 +51,10 @@ once('t&&c("div",{className:"absolute top-2 left-2 w-2 h-2 rounded-full bg-prima
   '_vs&&c("button",{type:"button",title:_if?"Remover dos favoritos":"Favoritar",onClick:_e=>{_e.stopPropagation(),__vf.toggle(_vs,e.id)},' +
     'className:`absolute top-1 right-1.5 z-[3] text-[17px] leading-none transition-transform hover:scale-125 ${_if?"text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]":"text-foreground/25 hover:text-yellow-300"}`,' +
     'children:_if?"\\u2605":"\\u2606"}),')
+// a foto do slot ficava por cima da estrela e pegava o clique: a camada da foto nao recebe mouse (o clique de vestir e do quadrado de fora)
+once('className:"w-full h-full flex items-center justify-center overflow-hidden rounded-xl relative",style:e.studioBackground',
+  'className:"w-full h-full flex items-center justify-center overflow-hidden rounded-xl relative pointer-events-none",style:e.studioBackground')
+once('className:`absolute top-1 right-1.5 z-[3] text-[17px]', 'className:`absolute top-1 right-1.5 z-[20] pointer-events-auto text-[17px]')
 once('(x,y)=>x.isActive===y.isActive&&x.zoom===y.zoom&&', '(x,y)=>x.isActive===y.isActive&&x.zoom===y.zoom&&x.isFav===y.isFav&&x.vfSec===y.vfSec&&')
 
 fs.writeFileSync(saida, t)
