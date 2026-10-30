@@ -1,0 +1,40 @@
+<<<FIND
+R5.displayName="Items";
+===
+R5.displayName="Items";const __VfCtx=m.exports.createContext("");const __vf=window.__vf||(window.__vf={fav:{},view:{},ls:new Set,emit(){this.ls.forEach(f=>f())},has(s,i){return!!(s&&this.fav[s]&&this.fav[s][String(i)])},count(s){return s&&this.fav[s]?Object.keys(this.fav[s]).length:0},setView(s,v){this.view[s]=!!v;this.emit()},post(n,d){return fetch("https://vel_roupa_favoritos/"+n,{method:"post",headers:{"Content-type":"application/json; charset=UTF-8"},body:JSON.stringify(d||{})}).then(r=>r.json()).catch(()=>null)},load(){this.post("fav_get").then(r=>{this.fav=r&&typeof r=="object"&&!Array.isArray(r)?r:{};this.emit()})},toggle(s,i){i=String(i);const on=!this.has(s,i);this.fav[s]=this.fav[s]||{};on?this.fav[s][i]=!0:delete this.fav[s][i];this.emit();this.post("fav_toggle",{sec:s,id:i,on}).then(ok=>{ok!==!0&&this.load()})}});function __useVf(){const[,x]=m.exports.useState(0);m.exports.useEffect(()=>{const f=()=>x(n=>n+1);__vf.ls.add(f);return()=>__vf.ls.delete(f)},[]);return __vf}
+>>>
+<<<FIND
+[c,f]=m.exports.useState(0);return m.exports.useLayoutEffect(()=>{if(s.length>0){const p=s[c],h=new CustomEvent("mri_appearance_subtab_change"
+===
+[c,f]=m.exports.useState(0);__useVf();m.exports.useEffect(()=>{__vf.view={},__vf.load()},[]);return m.exports.useLayoutEffect(()=>{if(s.length>0){const p=s[c],h=new CustomEvent("mri_appearance_subtab_change"
+>>>
+<<<FIND
+return u(Db,{label:y||"\xA0",isActive:g,onClick:()=>f(h),skeleton:!y},h)
+===
+const _sid=p.props.id||"",_fv=!!__vf.view[_sid],_nf=__vf.count(_sid);return C("div",{className:"flex items-stretch gap-1",children:[u("div",{className:"flex-1 min-w-0",children:u(Db,{label:y||"\xA0",isActive:g&&!_fv,onClick:()=>{__vf.setView(_sid,!1),f(h)},skeleton:!y})}),_sid&&u("button",{type:"button","data-sound":"tab",title:"Favoritos ("+_nf+")",onClick:()=>{__vf.setView(_sid,!0),f(h)},style:{width:28,flexShrink:0},className:`w-7 shrink-0 rounded-sm border flex items-center justify-center text-[15px] leading-none transition-colors ${g&&_fv?"bg-primary text-yellow-300 border-primary shadow-[0_0_20px_hsl(var(--primary)/0.3)]":_nf?"bg-background text-yellow-400 border-border hover:bg-secondary/80":"bg-background text-foreground/25 border-border hover:text-yellow-300"}`,children:"★"})]},h)
+>>>
+<<<FIND
+children:s[c]&&u(R5,{className:"section-items flex-1 overflow-hidden",children:s[c]},c)
+===
+children:s[c]&&u(R5,{className:"section-items flex-1 overflow-hidden",children:u(__VfCtx.Provider,{value:s[c].props.id||"",children:s[c]})},c)
+>>>
+<<<FIND
+D5=m.exports.memo(({item:e,isActive:t,onSelect:n,zoom:r})=>{
+===
+D5=m.exports.memo(({item:e,isActive:t,onSelect:n,zoom:r,vfSec:_vs,isFav:_if})=>{
+>>>
+<<<FIND
+t&&u("div",{className:"absolute top-2 left-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.8)] z-[2]"}),i&&u("div",{className:"absolute bottom-1 right-1.5
+===
+t&&u("div",{className:"absolute top-2 left-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.8)] z-[2]"}),_vs&&u("button",{type:"button",title:_if?"Remover dos favoritos":"Favoritar",onClick:_e=>{_e.stopPropagation(),__vf.toggle(_vs,e.id)},style:{zIndex:20,position:"absolute",top:4,right:6},className:`absolute top-1 right-1.5 z-[20] pointer-events-auto text-[17px] leading-none transition-transform hover:scale-125 ${_if?"text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]":"text-foreground/25 hover:text-yellow-300"}`,children:_if?"★":"☆"}),i&&u("div",{className:"absolute bottom-1 right-1.5
+>>>
+<<<FIND
+const h=t.find(k=>k.id===r)&&n&&n.length>0&&s,g=Ys(a),y=Ys(s);
+===
+const _sec=m.exports.useContext(__VfCtx),_vf=__useVf(),_fvOn=!!(_sec&&_vf.view[_sec]);if(_fvOn)t=t.filter(k=>_vf.has(_sec,k.id));const h=t.find(k=>k.id===r)&&n&&n.length>0&&s,g=Ys(a),y=Ys(s);
+>>>
+<<<FIND
+children:t.map(k=>u(D5,{item:k,isActive:k.id===r,onSelect:g,zoom:f},k.id))
+===
+children:_fvOn&&t.length===0?u("div",{style:{gridColumn:"1 / -1"},className:"col-span-3 text-center text-foreground/40 text-xs py-8 px-4 normal-case",children:"Nenhum favorito aqui ainda. Toque na ☆ no canto de uma pe\xE7a para favoritar."}):t.map(k=>u(D5,{item:k,isActive:k.id===r,onSelect:g,zoom:f,vfSec:_sec,isFav:_vf.has(_sec,k.id)},k.id))
+>>>

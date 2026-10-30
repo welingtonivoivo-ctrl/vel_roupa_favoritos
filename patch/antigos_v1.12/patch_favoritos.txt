@@ -1,0 +1,40 @@
+<<<FIND
+r0.displayName="Items";
+===
+r0.displayName="Items";const __VfCtx=d.exports.createContext("");const __vf=window.__vf||(window.__vf={fav:{},view:{},ls:new Set,emit(){this.ls.forEach(f=>f())},has(s,i){return!!(s&&this.fav[s]&&this.fav[s][String(i)])},count(s){return s&&this.fav[s]?Object.keys(this.fav[s]).length:0},setView(s,v){this.view[s]=!!v;this.emit()},post(n,d){return fetch("https://vel_roupa_favoritos/"+n,{method:"post",headers:{"Content-type":"application/json; charset=UTF-8"},body:JSON.stringify(d||{})}).then(r=>r.json()).catch(()=>null)},load(){this.post("fav_get").then(r=>{this.fav=r&&typeof r=="object"&&!Array.isArray(r)?r:{};this.emit()})},toggle(s,i){i=String(i);const on=!this.has(s,i);this.fav[s]=this.fav[s]||{};on?this.fav[s][i]=!0:delete this.fav[s][i];this.emit();this.post("fav_toggle",{sec:s,id:i,on}).then(ok=>{ok!==!0&&this.load()})}});function __useVf(){const[,x]=d.exports.useState(0);d.exports.useEffect(()=>{const f=()=>x(n=>n+1);__vf.ls.add(f);return()=>__vf.ls.delete(f)},[]);return __vf}
+>>>
+<<<FIND
+[l,c]=d.exports.useState(0);return d.exports.useLayoutEffect
+===
+[l,c]=d.exports.useState(0);__useVf();d.exports.useEffect(()=>{__vf.view={},__vf.load()},[]);return d.exports.useLayoutEffect
+>>>
+<<<FIND
+return i(C1,{label:m||"\xA0",isActive:p,onClick:()=>c(f),skeleton:!m},f)
+===
+const _sid=u.props.id||"",_fv=!!__vf.view[_sid],_nf=__vf.count(_sid);return v("div",{className:"flex items-stretch gap-1",children:[i("div",{className:"flex-1 min-w-0",children:i(C1,{label:m||"\xA0",isActive:p&&!_fv,onClick:()=>{__vf.setView(_sid,!1),c(f)},skeleton:!m})}),_sid&&i("button",{type:"button","data-sound":"tab",title:"Favoritos ("+_nf+")",onClick:()=>{__vf.setView(_sid,!0),c(f)},className:`w-7 shrink-0 rounded-sm border flex items-center justify-center text-[15px] leading-none transition-colors ${p&&_fv?"bg-primary text-yellow-300 border-primary shadow-[0_0_20px_hsl(var(--primary)/0.3)]":_nf?"bg-background text-yellow-400 border-border hover:bg-secondary/80":"bg-background text-foreground/25 border-border hover:text-yellow-300"}`,children:"★"})]},f)
+>>>
+<<<FIND
+children:s[l]&&i(r0,{className:"section-items flex-1 overflow-hidden",children:s[l]},l)
+===
+children:s[l]&&i(r0,{className:"section-items flex-1 overflow-hidden",children:i(__VfCtx.Provider,{value:s[l].props.id||"",children:s[l]})},l)
+>>>
+<<<FIND
+i0=d.exports.memo(({item:e,isActive:t,onSelect:r,zoom:n})=>{
+===
+i0=d.exports.memo(({item:e,isActive:t,onSelect:r,zoom:n,vfSec:_vs,isFav:_if})=>{
+>>>
+<<<FIND
+t&&i("div",{className:"absolute top-2 left-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.8)] z-[2]"}),
+===
+t&&i("div",{className:"absolute top-2 left-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.8)] z-[2]"}),_vs&&i("button",{type:"button",title:_if?"Remover dos favoritos":"Favoritar",onClick:_e=>{_e.stopPropagation(),__vf.toggle(_vs,e.id)},style:{zIndex:20},className:`absolute top-1 right-1.5 z-[20] pointer-events-auto text-[17px] leading-none transition-transform hover:scale-125 ${_if?"text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]":"text-foreground/25 hover:text-yellow-300"}`,children:_if?"★":"☆"}),
+>>>
+<<<FIND
+const f=t.find(x=>x.id===n)&&r&&r.length>0&&s,p=Qo(a),m=Qo(s);
+===
+const _sec=d.exports.useContext(__VfCtx),_vf=__useVf(),_fvOn=!!(_sec&&_vf.view[_sec]);if(_fvOn)t=t.filter(x=>_vf.has(_sec,x.id));const f=t.find(x=>x.id===n)&&r&&r.length>0&&s,p=Qo(a),m=Qo(s);
+>>>
+<<<FIND
+children:t.map(x=>i(i0,{item:x,isActive:x.id===n,onSelect:p,zoom:c},x.id))
+===
+children:_fvOn&&t.length===0?i("div",{style:{gridColumn:"1 / -1"},className:"col-span-3 text-center text-foreground/40 text-xs py-8 px-4 normal-case",children:"Nenhum favorito aqui ainda. Toque na ☆ no canto de uma pe\xE7a para favoritar."}):t.map(x=>i(i0,{item:x,isActive:x.id===n,onSelect:p,zoom:c,vfSec:_sec,isFav:_vf.has(_sec,x.id)},x.id))
+>>>

@@ -1,0 +1,5 @@
+<<<FIND
+{id:"surgeon",label:"Cirurgia pl\xE1stica",icon:"\u{1F489}"}]
+===
+{id:"surgeon",label:"Cirurgia pl\xE1stica",icon:"\u{1F489}"},{id:"uniform_hospital",label:"Fardas \xB7 Hospital",icon:"\u{1F3E5}"},{id:"uniform_police",label:"Fardas \xB7 Pol\xEDcia",icon:"\u{1F46E}"},{id:"uniform_gang",label:"Fardas \xB7 Fac\xE7\xE3o",icon:"\u{1F3F4}"},{id:"uniform_mechanic",label:"Fardas \xB7 Mec\xE2nica",icon:"\u{1F527}"}]
+>>>

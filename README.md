@@ -9,10 +9,12 @@ Favoritos na loja de roupas do `mri_Qappearance` (Street Roleplay).
 ## Partes
 
 - `client/` e `server/`: o resource (NUI callbacks `fav_get` / `fav_toggle`, chamados pela tela da loja).
-- `remendo/`: remendos da tela compilada do `mri_Qappearance` v1.11.3 (`html/assets/index.js`).
+- `patch/`: remendos da tela compilada do `mri_Qappearance` (`html/assets/index.js`), feitos para a **v1.14.0**.
   O instalador MRI apaga esses remendos ao atualizar a loja. Para reaplicar, a partir do index.js original:
   ```
-  node remendo/grade.cjs index.js g.js        # velocidade da grade (memo nos slots)
-  node remendo/favoritos.cjs g.js index.js.novo
+  node patch/apply.js index.js patch/patch_favoritos.txt a.js
+  node patch/apply.js a.js patch/patch_grade_blacklist.txt index.novo.js
   ```
-  Cada troca precisa casar 1 vez; se o MRI mudar o arquivo, o script para e avisa.
+  Cada bloco precisa casar 1 vez; se a MRI mudar o arquivo, o script para e avisa.
+  Os dois patches podem ir em qualquer ordem e rodar de novo não duplica. Detalhes em `patch/LEIA.md`.
+- `patch/antigos_v1.12/` e `patch/antigos_v1.11.3/`: remendos das versões anteriores, só como referência.
