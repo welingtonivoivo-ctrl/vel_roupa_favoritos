@@ -18,3 +18,9 @@ Favoritos na loja de roupas do `mri_Qappearance` (Street Roleplay).
   Cada bloco precisa casar 1 vez; se a MRI mudar o arquivo, o script para e avisa.
   Os dois patches podem ir em qualquer ordem e rodar de novo não duplica. Detalhes em `patch/LEIA.md`.
 - `patch/antigos_v1.12/` e `patch/antigos_v1.11.3/`: remendos das versões anteriores, só como referência.
+
+## Licença
+
+GPL-3.0 — pode usar, modificar e redistribuir, desde que o código continue aberto com a mesma licença.
+
+Os arquivos em `patch/` trazem trechos curtos do código compilado do `mri_Qappearance` (baseado no illenium-appearance, licença MIT), usados só para localizar onde aplicar o remendo.
